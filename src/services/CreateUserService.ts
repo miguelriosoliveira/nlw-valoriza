@@ -25,7 +25,7 @@ export class CreateUserService implements IServiceInterface {
 
 		const userExists = await usersRepository.findByEmail(email);
 		if (userExists) {
-			throw new AppError('E-mail already in use!');
+			throw new AppError('E-mail already in use!', 403);
 		}
 
 		const user = usersRepository.create({ name, email, admin });

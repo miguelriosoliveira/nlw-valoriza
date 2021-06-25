@@ -15,7 +15,7 @@ export class CreateTagService implements IServiceInterface {
 
 		const tagExists = await tagsRepository.findByName(name);
 		if (tagExists) {
-			throw new AppError('Tag already exists!');
+			throw new AppError('Tag already exists!', 403);
 		}
 
 		const tag = tagsRepository.create({ name });
