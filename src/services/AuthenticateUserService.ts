@@ -3,16 +3,16 @@ import { sign } from 'jsonwebtoken';
 import { getCustomRepository } from 'typeorm';
 
 import { AppError } from '../errors/AppError';
-import { UsersRepository } from '../repositories/UsersRepository';
+import { UsersRepository } from '../repositories';
 
-import { IServiceInterface } from './ServiceInterface';
+import { IService } from './IService';
 
 interface IUserData {
 	email: string;
 	password: string;
 }
 
-export class AuthenticateUserService implements IServiceInterface {
+export class AuthenticateUserService implements IService {
 	async execute({ email, password }: IUserData) {
 		const usersRepository = getCustomRepository(UsersRepository);
 

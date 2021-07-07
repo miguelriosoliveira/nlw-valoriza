@@ -1,3 +1,3 @@
-export interface IServiceInterface {
+export interface IService {
 	execute(data: unknown): Promise<unknown>;
 }

@@ -1,3 +1,4 @@
+import { Expose } from 'class-transformer';
 import {
 	Column,
 	CreateDateColumn,
@@ -13,6 +14,9 @@ export class Tag {
 
 	@Column()
 	name: string;
+
+	@Expose({ name: 'display_name' })
+	display_name = () => `#${this.name}`;
 
 	@CreateDateColumn()
 	created_at: Date;

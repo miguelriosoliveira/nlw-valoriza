@@ -2,9 +2,9 @@ import { Request, Response } from 'express';
 
 import { CreateUserService } from '../services/CreateUserService';
 
-import { IControllerInterface } from './ControllerInterface';
+import { IController } from './IController';
 
-export class CreateUserController implements IControllerInterface {
+export class CreateUserController implements IController {
 	async handle(request: Request, response: Response) {
 		const { name, email, password, admin } = request.body;
 

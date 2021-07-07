@@ -11,4 +11,8 @@ export class TagsRepository extends Repository<Tag> {
 	async findByName(name: string) {
 		return this.findOne({ name });
 	}
+
+	async findAll() {
+		return this.find();
+	}
 }

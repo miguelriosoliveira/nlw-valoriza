@@ -4,7 +4,7 @@ import { getCustomRepository } from 'typeorm';
 import { AppError } from '../errors/AppError';
 import { UsersRepository } from '../repositories/UsersRepository';
 
-import { IServiceInterface } from './ServiceInterface';
+import { IService } from './IService';
 
 interface IUserData {
 	name: string;
@@ -13,7 +13,7 @@ interface IUserData {
 	admin?: boolean;
 }
 
-export class CreateUserService implements IServiceInterface {
+export class CreateUserService implements IService {
 	async execute({ name, email, password, admin }: IUserData) {
 		if (!name) {
 			throw new AppError('Invalid name!');

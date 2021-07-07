@@ -1,11 +1,9 @@
 import { getCustomRepository } from 'typeorm';
 
 import { AppError } from '../errors/AppError';
-import { ComplimentsRepository } from '../repositories/ComplimentsRepository';
-import { TagsRepository } from '../repositories/TagsRepository';
-import { UsersRepository } from '../repositories/UsersRepository';
+import { ComplimentsRepository, TagsRepository, UsersRepository } from '../repositories';
 
-import { IServiceInterface } from './ServiceInterface';
+import { IService } from './IService';
 
 interface IComplimentData {
 	user_sender_id: string;
@@ -14,7 +12,7 @@ interface IComplimentData {
 	message: string;
 }
 
-export class CreateComplimentService implements IServiceInterface {
+export class CreateComplimentService implements IService {
 	async execute({ user_sender_id, user_receiver_id, tag_id, message }: IComplimentData) {
 		if (user_sender_id === user_receiver_id) {
 			throw new AppError('User cannot create a self compliment!', 403);

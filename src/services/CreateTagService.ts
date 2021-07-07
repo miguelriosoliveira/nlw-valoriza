@@ -3,9 +3,9 @@ import { getCustomRepository } from 'typeorm';
 import { AppError } from '../errors/AppError';
 import { TagsRepository } from '../repositories/TagsRepository';
 
-import { IServiceInterface } from './ServiceInterface';
+import { IService } from './IService';
 
-export class CreateTagService implements IServiceInterface {
+export class CreateTagService implements IService {
 	async execute(name: string) {
 		if (!name) {
 			throw new AppError('Invalid name!');

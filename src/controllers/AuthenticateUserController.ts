@@ -2,9 +2,9 @@ import { Request, Response } from 'express';
 
 import { AuthenticateUserService } from '../services/AuthenticateUserService';
 
-import { IControllerInterface } from './ControllerInterface';
+import { IController } from './IController';
 
-export class AuthenticateUserController implements IControllerInterface {
+export class AuthenticateUserController implements IController {
 	async handle(request: Request, response: Response) {
 		const { email, password } = request.body;
 

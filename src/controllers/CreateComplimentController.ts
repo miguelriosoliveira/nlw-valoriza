@@ -2,9 +2,9 @@ import { Request, Response } from 'express';
 
 import { CreateComplimentService } from '../services/CreateComplimentService';
 
-import { IControllerInterface } from './ControllerInterface';
+import { IController } from './IController';
 
-export class CreateComplimentController implements IControllerInterface {
+export class CreateComplimentController implements IController {
 	async handle(request: Request, response: Response) {
 		const { user_id } = request;
 		const { user_receiver_id, tag_id, message } = request.body;

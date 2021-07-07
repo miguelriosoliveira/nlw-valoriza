@@ -2,9 +2,9 @@ import { Request, Response } from 'express';
 
 import { CreateTagService } from '../services/CreateTagService';
 
-import { IControllerInterface } from './ControllerInterface';
+import { IController } from './IController';
 
-export class CreateTagController implements IControllerInterface {
+export class CreateTagController implements IController {
 	async handle(request: Request, response: Response) {
 		const { name } = request.body;
 
